@@ -1,0 +1,177 @@
+body {
+    background: linear-gradient(to right, #77ee8b, #0ec02b);  
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+input[type=text], select {
+    width: 100%;
+    padding: 18px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: rgb(252, 249, 249);
+    border-left: transparent;
+    border-top: transparent;
+    border-right: transparent;
+    text-align: center;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background: linear-gradient(to right, #77ee8b, #0ec02b);
+/*     color: rgb(252, 249, 249); */
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background: linear-gradient(to right, #def5e2, #6cca7b);;
+    border-color: transparent;
+  }
+  input:focus {
+    outline: 0;
+  }
+  .form {
+      margin-top: 40px;
+  }
+  .wadah {
+    color: black;
+    border-radius: 5px;
+    background-color: rgb(252, 249, 249);
+    padding: 20px;
+    width: 300px;
+    height: 300px;
+    margin: 200px auto;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: linear-gradient(to right, #77ee8b, #0ec02b);
+    color: white;
+}
+
+.navbar {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.littlenavbar {
+    width: 100%;
+    height: 80px;
+    text-align: right;
+    padding-top: 30px;
+}
+.littlenavbar li {
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    list-style-type: none;
+    display: inline;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 0;
+    padding-top: 20px;
+    cursor: pointer;
+}
+.littlenavbar li:hover {
+    text-decoration: underline;
+  transition: 0.5s ease;
+}
+.jumbotron {
+    margin-top: 100px;
+    margin-left: 350px;
+    text-align: center;
+    height: 300px;
+    width: 50%;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 110vh;
+}
+.buttons {
+    margin-top: 50px;
+    display: flex;
+    font-size: 20px;
+}
+.Red {
+    background: transparent;
+    padding-top: 20px;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    border: 2px solid red;
+    color: red;
+    cursor: pointer;
+}
+.Green {
+    background: transparent;
+    padding-top: 20px;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    border: 2px solid green;
+    margin-left: 100px;
+    color: green;
+    cursor: pointer;
+}
+.Red:hover {
+    border: 3px solid red;
+    background: red;
+    color: white;
+}
+.Green:hover {
+    border: 3px solid green;
+    background: green;
+    color: white;
+}
+@media screen and (max-width: 880px) {
+    .jumbotron {
+        margin-left: 180px;
+        margin-top: 20px;
+    }
+    .buttons {
+        margin-left: 0px;
+    }
+}
+@media screen and (max-width: 680px) {
+    .littlenavbar {
+        height: 40px;
+        color: transparent;
+    }
+    .littlenavbar li {
+        font-size: 25px;
+        margin-left: 5px;
+        margin-right: 5px;
+        color: transparent;
+    }
+    .jumbotron {
+        font-size: 20px;
+        margin-left: 130px;
+        margin-top: 20px;
+        height: 250px;
+    }
+    .buttons {
+        margin-left: -70px;
+        font-size: 15px;
+    }
+    .Red {
+        width: 150px;
+        height: 50px;
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+    .Green {
+        width: 150px;
+        height: 50px;
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+}

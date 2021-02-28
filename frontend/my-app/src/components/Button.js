@@ -1,15 +1,20 @@
 import React from 'react'
-import './style1.css'
+import axios from 'axios'
 const Button = () => {
+
+    const apiCall = () => {
+        axios.get('http://localhost:8080/get/6')
+    }
     return (
-        <jumbotron className="jumbotron">
-            <h1>Tombol Darurat</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci molestias obcaecati fuga est praesentium libero cupiditate iste vel, corporis, magni labore dolores voluptatem itaque asperiores. Error labore fugit sit quis.</p>
-            <div className="buttons">
-                <a>sadfsd</a>
-                <a>sdfasd</a>
-            </div>
-        </jumbotron>
+    <div className="jumbotron">
+        <h1>Tombol Darurat</h1>
+        <br></br>
+        <p>Tombol Merah akan mengaktifkan suara sirine dan mengirimkan pesan ke kontak yang sudah didaftarkan. Tombol Hijau akan mengaktifkan perekaman suara dan mengirimkan pesan ke kontak yang sudah didaftarkan.</p>
+        <div class="buttons">
+            <div onClick={()=>{apiCall()}} class="Red">Merah</div>
+            <div onClick={()=>{apiCall()}} class="Green">Hijau</div>
+        </div>
+    </div>
     )
 }
 

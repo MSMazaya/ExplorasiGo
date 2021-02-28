@@ -17,25 +17,7 @@ type Judges struct {
 }
 
 func apiCall(number string) {
-	accountSid := "AC45d9bf7b4edeb91dbbd5ae152be0fe58"
-	authToken := "a2d456698b19b0e14a564a1d593e4ad5"
-	urlStr := "https://api.twilio.com/2010-04-01/Accounts/" + accountSid + "/Messages.json"
 
-	v := url.Values{}
-	v.Set("To", number)
-	v.Set("From", "+16152819135")
-	v.Set("Body", "Brooklyn's in the house!")
-	rb := *strings.NewReader(v.Encode())
-
-	client := &http.Client{}
-
-	req, _ := http.NewRequest("POST", urlStr, &rb)
-	req.SetBasicAuth(accountSid, authToken)
-	req.Header.Add("Accept", "application/json")
-	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
-
-	resp, _ := client.Do(req)
-	fmt.Println(resp.Status)
 }
 
 func main() {
@@ -53,7 +35,24 @@ func main() {
 		id := c.Param("id")
 		var judge Judges
 		db.First(&judge, "id = ?", id)
-		apiCall(judge.Phone)
+		accountSid := "AC45d9bf7b4edeb91dbbd5ae152be0fe58"
+		authToken := "7f1a7db524e4e3656d945545ce1a9463"
+		urlStr := "https://api.twilio.com/2010-04-01/Accounts/" + accountSid + "/Messages.json"
+		fmt.Println(judge.Phone)
+		v := url.Values{}
+		v.Set("To", judge.Phone)
+		v.Set("From", "+16152819135")
+		v.Set("Body", "Tolong Mazaya! Dia mengalami kekerasan di Garut, Jl. Patriot No.31, Hubungi Polisi: 021-65303118 ")
+		rb := *strings.NewReader(v.Encode())
+		client := &http.Client{}
+
+		req, _ := http.NewRequest("POST", urlStr, &rb)
+		req.SetBasicAuth(accountSid, authToken)
+		req.Header.Add("Accept", "application/json")
+		req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
+
+		resp, _ := client.Do(req)
+		fmt.Println(resp.Status)
 	})
 
 	r.Run()
