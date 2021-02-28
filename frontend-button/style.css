@@ -3,7 +3,8 @@
     padding: 0;
 }
 body {
-    background-color: green;
+    background: linear-gradient(to right, #77ee8b, #0ec02b);
+    color: white;
 }
 
 .navbar {
@@ -11,14 +12,112 @@ body {
     margin-right: 50px;
 }
 .littlenavbar {
-    background-color: white;
     width: 100%;
-    height: 40px;
+    height: 80px;
+    text-align: right;
+    padding-top: 30px;
 }
-.littlenavbar  li {
-    color: green;
+.littlenavbar li {
+    color: white;
+    font-size: 25px;
     text-decoration: none;
     list-style-type: none;
     display: inline;
-    margin: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 0;
+    padding-top: 20px;
+    cursor: pointer;
+}
+.littlenavbar li:hover {
+    text-decoration: underline;
+  transition: 0.5s ease;
+}
+.jumbotron {
+    margin-top: 100px;
+    margin-left: 350px;
+    text-align: center;
+    height: 300px;
+    width: 50%;
+    font-size: 30px;
+}
+.buttons {
+    margin-top: 50px;
+    display: flex;
+    margin-left: 200px;
+    font-size: 20px;
+}
+.Red {
+    background: transparent;
+    padding-top: 20px;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    border: 2px solid red;
+    color: red;
+    cursor: pointer;
+}
+.Green {
+    background: transparent;
+    padding-top: 20px;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    border: 2px solid green;
+    margin-left: 100px;
+    color: green;
+    cursor: pointer;
+}
+.Red:hover {
+    border: 3px solid red;
+    background: red;
+    color: white;
+}
+.Green:hover {
+    border: 3px solid green;
+    background: green;
+    color: white;
+}
+@media screen and (max-width: 880px) {
+    .jumbotron {
+        margin-left: 180px;
+        margin-top: 20px;
+    }
+    .buttons {
+        margin-left: 0px;
+    }
+}
+@media screen and (max-width: 680px) {
+    .littlenavbar {
+        height: 40px;
+        color: transparent;
+    }
+    .littlenavbar li {
+        font-size: 25px;
+        margin-left: 5px;
+        margin-right: 5px;
+        color: transparent;
+    }
+    .jumbotron {
+        font-size: 20px;
+        margin-left: 130px;
+        margin-top: 20px;
+        height: 250px;
+    }
+    .buttons {
+        margin-left: -70px;
+        font-size: 15px;
+    }
+    .Red {
+        width: 150px;
+        height: 50px;
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+    .Green {
+        width: 150px;
+        height: 50px;
+        padding-right: 50px;
+        padding-left: 50px;
+    }
 }

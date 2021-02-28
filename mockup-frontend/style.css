@@ -33,17 +33,15 @@ input[type=text], select {
   input:focus {
     outline: 0;
   }
-  div {
+  .form {
+      margin-top: 40px;
+  }
+  .wadah {
+    color: black;
     border-radius: 5px;
     background-color: rgb(252, 249, 249);
     padding: 20px;
     width: 300px;
     height: 300px;
     margin: 200px auto;
-  }
-  .form {
-      margin-top: 40px;
-  }
-  .wadah {
-    color: black;
   }
