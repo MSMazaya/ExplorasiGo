@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import './components/style2.css'
+import React,{useEffect} from 'react'
 
 function App() {
+  
+  const accountSid = "AC45d9bf7b4edeb91dbbd5ae152be0fe58";
+  const authToken = "a2d456698b19b0e14a564a1d593e4ad5";
+  const client = require('twilio')(accountSid, authToken);
+
+  useEffect(() => { 
+      client.messages
+      .create({
+        body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+        from: '+16152819135',
+        to: '+628112121326'
+      })
+    .then(message => console.log(message.sid))
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <form class="form">
+          <h1>Gelang Anti Kekerasan</h1>
+          <label htmlFor="pnumber">Input your phone number:</label>
+          <input type="text" id="pnumber" name="phonenumber" placeholder="Masukkan Nomor Handphone"></input>
+          <input type="submit" onClick={()=>{}}></input>
+      </form>
   );
 }
 
