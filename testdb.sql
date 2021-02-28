@@ -2,4 +2,4 @@
 -- 	name varchar(255)
 -- );
 
-select * from testdb.users
+select * from testdb.judges

@@ -1,29 +1,35 @@
 package main
 
 import (
-	"database/sql"
-	"fmt"
-
-	_ "github.com/go-sql-driver/mysql"
+	"github.com/gin-gonic/gin"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
 )
 
+type Judges struct {
+	ID    string
+	Phone string
+}
+
 func main() {
-	// refer https://github.com/go-sql-driver/mysql#dsn-data-source-name for details
-	fmt.Println("Connecting Go to MySQL")
-	db, err := sql.Open("mysql", "root:accessdenied@tcp(127.0.0.1:3306)/testdb")
+	dsn := "root:accessdenied@tcp(127.0.0.1:3306)/testdb?charset=utf8mb4&parseTime=True&loc=Local"
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
-		panic(err.Error())
+		panic("failed to connect database")
 	}
 
-	defer db.Close()
+	r := gin.Default()
+	// Migrate the schema
+	db.AutoMigrate(&Judges{})
 
-	insert, err := db.Query("INSERT INTO users VALUES('ELIOT')")
-	if err != nil {
-		panic(err.Error())
-	}
-
-	defer insert.Close()
-
-	fmt.Println("Success")
+	r.GET("/ping/:id", func(c *gin.Context) {
+		id := c.Param("id")
+		var judge Judges
+		db.First(&judge, "id = ?", id)
+		c.JSON(200, gin.H{
+			"phone": judge.Phone,
+		})
+	})
+	r.Run()
 
 }
